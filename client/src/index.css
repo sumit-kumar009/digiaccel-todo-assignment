@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+/* Design tokens taken from the Figma file */
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #4566ec;
+  --color-primary-dark: #3653d1;
+  --color-navy: #253c98;
+  --color-ink: #090e23;
+  --color-muted: #717171;
+  --color-subtle: #6e7180;
+  --color-disabled: #c0c0c0;
+  --color-line: #eaeaea;
+  --color-field: #e6e6e6;
+  --color-page: #fdfdff;
+  --color-track: #dadaff;
+
+  --color-done-bg: #eff2ff;
+  --color-done-badge: #99adff;
+  --color-pending-bg: #ffe6e7;
+  --color-pending-badge: #ffb1b5;
+  --color-danger: #e5484d;
+}
+
+/* Background behind task rows (rows must be opaque to cover the swipe "Delete" button) */
+:root {
+  --row-bg: var(--color-page);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #eef0f7;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Bottom sheet + dialog animations */
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-sheet-up {
+  animation: sheet-up 0.25s ease-out;
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sheet-up,
+  .animate-fade-in {
+    animation: none;
+  }
+}

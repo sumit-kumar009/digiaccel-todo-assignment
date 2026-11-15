@@ -2,8 +2,10 @@
 
 A mobile-first to-do list where tasks are scheduled by date & time and organised into Monday–Sunday weeks, with open / completed counts for every week.
 
-- **Live app:** _coming soon_
-- **API:** _coming soon_
+- **Live app:** https://digiaccel-todo-sumit.netlify.app
+- **API:** https://digiaccel-todo-assignment.onrender.com/api (health check: [`/api/health`](https://digiaccel-todo-assignment.onrender.com/api/health))
+
+> The API runs on Render's free tier, so the first request after a period of inactivity can take up to a minute while the server wakes up.
 
 ## Features
 

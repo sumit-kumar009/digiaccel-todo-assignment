@@ -112,5 +112,5 @@ Weeks start on Monday. Because "which week is this task in" depends on where the
 
 ## Deployment
 
-- **API → Render** (web service, root directory `server`, build `npm install`, start `npm start`). Environment variables: `MONGODB_URI`, `CLIENT_URL` (the Netlify URL, used for CORS).
+- **API → Render** (`render.yaml` is included, so it can be created as a Blueprint; or manually as a web service with root directory `server`, build `npm install`, start `npm start`). Environment variables: `MONGODB_URI`, `CLIENT_URL` (the Netlify URL, used for CORS).
 - **Frontend → Netlify** (base directory `client`, build `npm run build`, publish `client/dist`). Environment variable: `VITE_API_URL` = `https://<render-app>.onrender.com/api`. `public/_redirects` makes page refreshes work on client-side routes.

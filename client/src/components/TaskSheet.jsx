@@ -52,6 +52,13 @@ function openPicker(e) {
   }
 }
 
+// On phones the on-screen keyboard can cover fields near the bottom of the sheet,
+// so scroll the focused field back into view once the keyboard has opened.
+function keepInView(e) {
+  const field = e.currentTarget;
+  setTimeout(() => field.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+}
+
 function FieldLabel({ children, htmlFor }) {
   return (
     <label htmlFor={htmlFor} className="mb-2 block text-xs font-medium text-muted">
@@ -273,10 +280,11 @@ export default function TaskSheet({ task, defaultDate, onClose, onSaved }) {
               id="task-description"
               value={form.description}
               onChange={(e) => set('description')(e.target.value)}
+              onFocus={keepInView}
               placeholder="Add Description"
               maxLength={1000}
               rows={4}
-              className="block h-[100px] w-full resize-none border border-line px-2.5 py-2.5 text-sm leading-5 text-ink outline-none placeholder:text-ink focus:border-primary"
+              className="block h-[100px] w-full resize-none border border-line bg-white px-2.5 py-2.5 text-sm leading-5 text-ink outline-none placeholder:text-ink/40 focus:border-primary"
             />
           </div>
         </div>
